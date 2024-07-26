@@ -1,0 +1,11 @@
+host1: db1
+port1: "5432"
+user1: toto
+password1: "1234"
+host2: db2
+port2: "5432"
+user2: toto
+password2: "1234"
+interval: "2"
+
+schedule: "0 * * * *"

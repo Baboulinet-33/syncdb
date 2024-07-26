@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pg-sync-tables
+  labels:
+    jobgroup: pg-sync-tables
+spec:
+  schedule: "{{ .Values.schedule }}"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    metadata:
+      name: pg-sync-tables
+      labels:
+        jobgroup: pg-sync-tables
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          containers:
+          - name: pg-sync-tables
+            image: {{ .Values.pg_backup.image }}:{{ .Values.pg_backup.tag }}
+            imagePullPolicy: IfNotPresent
+            envFrom:
+            - configMapRef:
+                name: configenv
+            resources:
+              requests:
+                cpu: "10m"
+                memory: "32Mi"
+              limits:
+                cpu: "1000m"
+                memory: "2048Mi"
+          imagePullSecrets: 
+          - name: registry-pull-secret
+          restartPolicy: Never

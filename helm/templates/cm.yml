@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configenv
+data:
+  HOST_1: "{{ .Values.host1 }}"
+  PORT_1: "{{ .Values.port1 }}"
+  USER_1: "{{ .Values.user1 }}"
+  PASSWORD_1: "{{ .Values.password1 }}"
+  HOST_2: "{{ .Values.host2 }}"
+  PORT_2: "{{ .Values.port2 }}"
+  USER_2: "{{ .Values.user2 }}"
+  PASSWORD_2: "{{ .Values.password2 }}"
+  INTERVAL: "{{ .Values.interval }}"
+   
