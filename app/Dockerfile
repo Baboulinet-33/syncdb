@@ -45,6 +45,7 @@ COPY --from=builder  /opt/venv /opt/venv
 WORKDIR /app
 
 COPY ./pg_sync_tables.py /app/pg_sync_tables.py
+RUN mkdir scripts
 COPY ./run.sh /app/scripts
 
 RUN find /app/scripts/ -type f -iname "*.sh" -exec chmod a+x {} +
