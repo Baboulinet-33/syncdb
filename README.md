@@ -4,6 +4,16 @@ Synchronisation de 2 bases de données.
 
 ## Configuration
 
+Remplir le fichier .env-exemple
+Taper la commande suivante pour charger les variables d'environnement:
+```sh
+source .env
+```
+
+*Note: INTERVAL ne sert plus, a supprimer*
+
+
+
 ### Variables d'environnement
 
 | Nom | Description |
@@ -19,5 +29,5 @@ Synchronisation de 2 bases de données.
 | PASSWORD_2 | mot de passe de la bdd de destination |
 | DB_2 | nom de la base dans la bdd de destination |
 | INTERVAL | Combien de temps on remonte en arrière |
-| TABLES | Nom des tables par ordre à synchroniser |
+| TABLES | Nom des tables par ordre a synchroniser |
 
