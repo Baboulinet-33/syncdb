@@ -55,7 +55,8 @@ conn_2=sqlalchemy.create_engine(f"psycopg://{user_2}:{password_2}@{hostname_2}:{
 '''
 Liste des tables à synchroniser
 '''
-table_list=["Table1", "Table2"]
+table_list=os.environ["TABLES"].split(',')
+print(table_list)
 for table in table_list:
     sync_table(table_name=table, interval=interval, connexion_1=conn_1, connexion_2=conn_2)
 
